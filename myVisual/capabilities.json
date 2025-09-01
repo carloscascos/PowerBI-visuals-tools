@@ -1,0 +1,179 @@
+{
+    "dataRoles": [
+        {
+            "name": "pathId",
+            "displayName": "Path ID",
+            "kind": "Grouping",
+            "description": "A unique identifier to draw multiple, distinct routes."
+        },
+        {
+            "name": "timestamp",
+            "displayName": "Timestamp",
+            "kind": "Grouping",
+            "description": "Timestamp for ordering the points. Must be a date/time field."
+        },
+        {
+            "name": "latitude",
+            "displayName": "Latitude",
+            "kind": "Measure",
+            "description": "The latitude coordinate."
+        },
+        {
+            "name": "longitude",
+            "displayName": "Longitude",
+            "kind": "Measure",
+            "description": "The longitude coordinate."
+        },
+        {
+            "name": "tooltipData",
+            "displayName": "Tooltip Data",
+            "kind": "Measure",
+            "description": "Drag additional data fields here to display in the tooltip."
+        }
+    ],
+    "dataViewMappings": [
+        {
+            "categorical": {
+                "categories": {
+                    "select": [
+                        { "for": { "in": "pathId" } },
+                        { "for": { "in": "timestamp" } }
+                    ],
+                    "dataReductionAlgorithm": { "top": {} }
+                },
+                "values": {
+                    "select": [
+                        { "for": { "in": "latitude" } },
+                        { "for": { "in": "longitude" } },
+                        { "for": { "in": "tooltipData" } }
+                    ]
+                }
+            }
+        }
+    ],
+    "objects": {
+        "mapSettings": {
+            "displayName": "Map Settings",
+            "properties": {
+                "showMap": {
+                    "displayName": "Show Map",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "mapStyle": {
+                    "displayName": "Map Style",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Grayscale",
+                                "value": "grayscale"
+                            },
+                            {
+                                "displayName": "Satellite", 
+                                "value": "satellite"
+                            },
+                            {
+                                "displayName": "Road",
+                                "value": "road"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pathSettings": {
+            "displayName": "Path Settings",
+            "properties": {
+                "color": {
+                    "displayName": "Route Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "thickness": {
+                    "displayName": "Thickness",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "opacity": {
+                    "displayName": "Opacity",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "glyphSettings": {
+            "displayName": "Glyph Settings", 
+            "properties": {
+                "startGlyphColor": {
+                    "displayName": "Start Glyph Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "endGlyphColor": {
+                    "displayName": "End Glyph Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "arrowColor": {
+                    "displayName": "Arrow Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "glyphSize": {
+                    "displayName": "Glyph Size",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "arrowSettings": {
+            "displayName": "Directional Arrow Settings",
+            "properties": {
+                "showArrows": {
+                    "displayName": "Show Arrows",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "arrowCount": {
+                    "displayName": "Arrow Count",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        }
+    },
+    "privileges": [],
+    "tooltips": {
+        "supportedTypes": {
+            "default": true,
+            "canvas": true
+        },
+        "roles": ["tooltipData"]
+    }
+}

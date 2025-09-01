@@ -1,0 +1,50 @@
+/* Azure Maps Route Visual Styles */
+
+#azureMapContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.routeMapOverlay {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Route path styling */
+.pathLayer .routePath {
+    fill: none;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: stroke;
+}
+
+/* Glyph styling */
+.glyphLayer .startGlyph,
+.glyphLayer .endGlyph,
+.glyphLayer .arrowGlyph {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.glyphLayer .startGlyph:hover,
+.glyphLayer .endGlyph:hover,
+.glyphLayer .arrowGlyph:hover {
+    opacity: 0.8;
+}
+
+/* Tooltip support */
+.routePath:hover,
+.startGlyph:hover,
+.endGlyph:hover,
+.arrowGlyph:hover {
+    pointer-events: all;
+}
